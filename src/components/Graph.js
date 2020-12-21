@@ -14,8 +14,7 @@ const Graph = () => {
         {
           backgroundColor: gradient,
           borderColor: "rgba(75,192,192,1)",
-          width: "10px",
-          maxBarThickness: 40,
+          maxBarThickness: 30,
           minBarThickness: 20,
           data: Array.from(Array(50), (item, ind) =>
             Math.floor(Math.random() * 1000)
@@ -26,15 +25,20 @@ const Graph = () => {
   };
 
   return (
-    <div>
-      <div>
-        {/* <h2>Annual Projection</h2> */}
+    <>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-end",
+        }}
+      >
         <Radio.Group
           value={years}
           onChange={(e) => {
             setYears(e.target.value);
           }}
-          style={{ display: "flex", float: "right" }}
+          style={{ display: "flex", float: "right", margin: "20px", marginRight: "0px" }}
         >
           <Radio.Button value={10}>10y</Radio.Button>
           <Radio.Button value={20}>20y</Radio.Button>
@@ -50,15 +54,15 @@ const Graph = () => {
             position: "top",
             fontSize: 15,
             fontColor: "black",
-            fontStyle: "normal",
+            fontStyle: "bold",
             lineHeight: "0.8",
             padding: 40,
-
           },
           legend: {
             display: false,
           },
-          responsive: "true",
+          responsive: true,
+          maintainAspectRatio: false,
           scales: {
             yAxes: [
               {
@@ -108,7 +112,7 @@ const Graph = () => {
           },
         }}
       />
-    </div>
+    </>
   );
 };
 

@@ -1,4 +1,8 @@
-
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -33,9 +37,17 @@ code {
 
 .site-layout .site-layout-background {
   background: #fff;
+  border:solid 2px rgba(184, 184, 184, 0.3)
 }
 
 .ant-select-selection {
   background-color: #01048a;
 }
 
+.graph-wrapper {
+  width: 100%;
+  height: 60vh;
+  padding: 0 50px 100px;
+  
+}
+/* #01048a */
