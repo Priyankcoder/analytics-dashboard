@@ -38,7 +38,12 @@ const Graph = () => {
           onChange={(e) => {
             setYears(e.target.value);
           }}
-          style={{ display: "flex", float: "right", margin: "20px", marginRight: "0px" }}
+          style={{
+            display: "flex",
+            float: "right",
+            margin: "20px",
+            marginRight: "0px",
+          }}
         >
           <Radio.Button value={10}>10y</Radio.Button>
           <Radio.Button value={20}>20y</Radio.Button>
@@ -66,9 +71,16 @@ const Graph = () => {
           scales: {
             yAxes: [
               {
+                gridLines: {
+                  color: "#f5f5f5",
+                },
+                ticks: {
+                  fontColor: "black", // this here
+                },
                 scaleLabel: {
                   display: true,
                   labelString: "Asset Balance (In Lakhs)",
+                  fontColor: "black",
                 },
               },
             ],
@@ -77,9 +89,13 @@ const Graph = () => {
                 gridLines: {
                   color: "rgba(0, 0, 0, 0)",
                 },
+                ticks: {
+                  fontColor: "black", // this here
+                },
                 scaleLabel: {
                   display: "true",
                   labelString: "No. of Year",
+                  fontColor: "black",
                 },
               },
             ],

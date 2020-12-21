@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Layout, Menu, Button, Avatar, Card, Row, Col, Alert} from "antd";
+import { Layout, Menu, Button, Avatar, Card, Row, Col, Alert, Badge} from "antd";
 import logo from "../images/logo.png";
 import property from "../images/property.png";
 import copter from "../images/copter.png";
@@ -8,8 +8,6 @@ import doughnut from "../images/doughnut.png";
 import growth from "../images/growth.png";
 import reception from "../images/reception.png";
 
-
-
 import {
   LeftOutlined,
   RightOutlined,
@@ -17,7 +15,8 @@ import {
   BarChartOutlined,
   CalendarOutlined,
   AppstoreOutlined,
-  SettingOutlined,
+  SettingFilled,
+  BellFilled,
   BellOutlined,
   ThunderboltOutlined,
   DownOutlined,
@@ -28,21 +27,18 @@ import CardLayout from "./CardLayout";
 import { Doughnut } from "react-chartjs-2";
 const { Header, Sider, Content } = Layout;
 
-const {Meta} = Card;
+const { Meta } = Card;
 const PageLayout = () => {
   const [collapsed, setCollapsed] = useState(true);
   return (
-    <Layout>
+
+    // Left Sidebar
+    <Layout className="site-layout">
       <Sider
         theme="light"
         breakpoint="lg"
         collapsedWidth="0"
-        onBreakpoint={(broken) => {
-          console.log(broken);
-        }}
-        onCollapse={(collapsed, type) => {
-          console.log(collapsed, type);
-        }}
+        className="site-layout-background"
       >
         <div
           className="logo"
@@ -65,7 +61,7 @@ const PageLayout = () => {
           />
           <h4 style={{ marginTop: "auto", marginBottom: "auto" }}>Finacular</h4>
         </div>
-        <Menu theme="light" mode="inline" defaultSelectedKeys={["1"]}>
+        <Menu theme="light" mode="inline" defaultSelectedKeys={["1"]} >
           <Menu.Item key="1" icon={<AppstoreOutlined size="large" />}>
             Dashboard
           </Menu.Item>
@@ -90,7 +86,7 @@ const PageLayout = () => {
             alignSelf: "center",
             textAlign: "center",
             verticalAlign: "center",
-            marginTop: "15px",
+            marginTop: "20px"
           }}
         >
           <Avatar
@@ -99,10 +95,7 @@ const PageLayout = () => {
           />
           <h4
             style={{
-              marginRight: "auto",
-              marginLeft: "5px",
-              marginTop: "auto",
-              marginBottom: "auto",
+              margin: "auto auto auto 5px"
             }}
           >
             Vandana M
@@ -111,15 +104,32 @@ const PageLayout = () => {
         </div>
       </Sider>
       <Layout className="site-layout">
-        <Header className="site-layout-background" style={{ padding: 0 }}>
+        <Header
+          className="site-layout-background"
+          style={{ height: "fit-content" }}
+        >
           <Menu
             theme="light"
             mode="horizontal"
             defaultSelectedKeys={["1"]}
+            mode="horizontal"
             style={{ float: "right" }}
           >
-            <Menu.Item key="1" icon={<SettingOutlined />}></Menu.Item>
-            <Menu.Item key="2" icon={<BellOutlined />}></Menu.Item>
+            <Menu.Item
+              key="1"
+              icon={
+                <SettingFilled style={{ color: "#a6a4a4", fontSize: "20px" }} />
+              }
+              
+            ></Menu.Item>
+            <Menu.Item
+              key="2"
+              icon={
+                <Badge dot>
+                  <BellFilled style={{ color: "#a6a4a4", fontSize: "20px" }} />
+                </Badge>
+              }
+            ></Menu.Item>
           </Menu>
         </Header>
         <Content
@@ -146,6 +156,7 @@ const PageLayout = () => {
                 t1="Enter amount:"
                 alert="₹ 1,25,000"
                 t2="Last Updated &nbsp;&nbsp; 3 Dec"
+                notifs="true"
               />
             </Col>
             <Col xs={24} sm={12} md={8}>
@@ -155,9 +166,10 @@ const PageLayout = () => {
                 t1="Enter Growth Rate"
                 alert="9.3%"
                 t2="Inflation &nbsp;&nbsp; 6 %"
+                notifs="true"
               />
             </Col>
-            <Col xs={24} sm={12} md={8} >
+            <Col xs={24} sm={12} md={8}>
               <CardLayout
                 title="Major Investments"
                 icon={property}
@@ -189,19 +201,15 @@ const PageLayout = () => {
       <Sider
         breakpoint="lg"
         collapsedWidth="0"
-        onBreakpoint={(broken) => {
-          console.log(broken);
-        }}
-        onCollapse={(collapsed, type) => {
-          console.log(collapsed, type);
-        }}
         style={{ float: "right" }}
         theme="light"
+        className="site-layout-background"
       >
         <Header
           theme="light"
           className="site-layout-background"
           style={{ display: "flex", padding: 0, background: "white" }}
+          className="site-layout-background"
         >
           <Button
             type="primary"
@@ -217,6 +225,51 @@ const PageLayout = () => {
             Actions
           </Button>
         </Header>
+        <Content
+          className="site-layout"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            textAlign: "center",
+          }}
+        >
+          <Card
+            size="small"
+            style={{
+              width: 180,
+              backgroundColor: "#fafafd",
+              marginTop: "10vh",
+              marginBottom: "5vh",
+            }}
+          >
+            <img src={plant} alt="compounding" width="95%" />
+            <p>Understand the power of compounding</p>
+            <Button
+              style={{
+                backgroundColor: "#01048a",
+                color: "white",
+                width: "90%",
+                borderRadius: "5px",
+              }}
+            >
+              Learn Now
+            </Button>
+          </Card>
+          <Card size="small" style={{ width: 180, backgroundColor: "#fafafd" }}>
+            <img src={reception} alt="compounding" width="95%" />
+            <p>Track all your expenses on daily basis</p>
+            <Button
+              style={{
+                backgroundColor: "#01048a",
+                color: "white",
+                width: "90%",
+              }}
+            >
+              Track Now
+            </Button>
+          </Card>
+        </Content>
       </Sider>
     </Layout>
   );

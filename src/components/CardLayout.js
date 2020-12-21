@@ -1,6 +1,6 @@
 import {EllipsisOutlined} from "@ant-design/icons";
-import {Card, Alert} from 'antd'
-const CardLayout = ({title, icon, alert, t1, t2}) => {
+import {Card, Alert, Badge} from 'antd'
+const CardLayout = ({title, icon, alert, t1, t2, notifs}) => {
     return (
       <Card
         size="small"
@@ -12,7 +12,7 @@ const CardLayout = ({title, icon, alert, t1, t2}) => {
             <EllipsisOutlined style={{ color: "#9ba7c8", fontSize: "35px" }} />
           </a>
         }
-  
+        className="site-layout-background"
       >
         <div
           style={{
@@ -37,6 +37,7 @@ const CardLayout = ({title, icon, alert, t1, t2}) => {
             />
             {t2 ? <h5>{t2}</h5> : ""}
           </div>
+          {notifs ? <Badge dot style={{display: "flex", alignSelf: "center"}}/> : ""}
           <div
             style={{
               width: "40%",

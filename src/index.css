@@ -38,6 +38,7 @@ code {
 .site-layout .site-layout-background {
   background: #fff;
   border:solid 2px rgba(184, 184, 184, 0.3)
+  
 }
 
 .ant-select-selection {
@@ -47,7 +48,7 @@ code {
 .graph-wrapper {
   width: 100%;
   height: 60vh;
-  padding: 0 50px 100px;
+  padding: 0 30px 100px 10px;
   
 }
 /* #01048a */
