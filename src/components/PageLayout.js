@@ -31,7 +31,6 @@ const { Meta } = Card;
 const PageLayout = () => {
   const [collapsed, setCollapsed] = useState(true);
   return (
-
     // Left Sidebar
     <Layout className="site-layout">
       <Sider
@@ -39,6 +38,7 @@ const PageLayout = () => {
         breakpoint="lg"
         collapsedWidth="0"
         className="site-layout-background"
+        style={{ position: "relative", zIndex: "10" }}
       >
         <div
           className="logo"
@@ -61,7 +61,7 @@ const PageLayout = () => {
           />
           <h4 style={{ marginTop: "auto", marginBottom: "auto" }}>Finacular</h4>
         </div>
-        <Menu theme="light" mode="inline" defaultSelectedKeys={["1"]} >
+        <Menu theme="light" mode="inline" defaultSelectedKeys={["1"]}>
           <Menu.Item key="1" icon={<AppstoreOutlined size="large" />}>
             Dashboard
           </Menu.Item>
@@ -86,7 +86,7 @@ const PageLayout = () => {
             alignSelf: "center",
             textAlign: "center",
             verticalAlign: "center",
-            marginTop: "20px"
+            marginTop: "20px",
           }}
         >
           <Avatar
@@ -95,7 +95,7 @@ const PageLayout = () => {
           />
           <h4
             style={{
-              margin: "auto auto auto 5px"
+              margin: "auto auto auto 5px",
             }}
           >
             Vandana M
@@ -120,7 +120,6 @@ const PageLayout = () => {
               icon={
                 <SettingFilled style={{ color: "#a6a4a4", fontSize: "20px" }} />
               }
-              
             ></Menu.Item>
             <Menu.Item
               key="2"
@@ -204,6 +203,7 @@ const PageLayout = () => {
         style={{ float: "right" }}
         theme="light"
         className="site-layout-background"
+        style={{ position: "relative", zIndex: "10" }}
       >
         <Header
           theme="light"
